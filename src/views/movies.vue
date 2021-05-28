@@ -50,7 +50,7 @@ export default {
    
     const fetchResults = () => {
       if(search.search !== undefined) {
-         fetch(`http://www.omdbapi.com/?apikey=${env.apiKey}&s=${search.search}&page=${page.value}`)
+         fetch(`https://www.omdbapi.com/?apikey=${env.apiKey}&s=${search.search}&page=${page.value}`)
         .then((res) => res.json())
         .then((data) => {
           

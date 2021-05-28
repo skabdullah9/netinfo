@@ -30,7 +30,7 @@
     <p class="border-2 border-pink-600 border-opacity-50 py-2 px-4 shadow-lg rounded-full">Language: <span class="text-yellow-400 italic">"{{movie.Language}}"</span></p>
 
     </div>
-    <h2 class="text-xl mt-8 ">Cast: <span class="bg-green-700 rounded-full py-2 px-3 m-1 text-base" v-for="actor in movie.Actors">{{actor}}</span></h2>
+    <h2 class="text-xl mt-8 ">Cast: <span class="bg-pink-600  rounded-full py-1 px-3 m-1 text-base" v-for="actor in movie.Actors">{{actor}}</span></h2>
   </main>
   <main v-else class="h-screen flex items-center justify-center">
     <div>
@@ -55,7 +55,7 @@ export default {
     let movie = ref({});
     let loading = ref(true);
     onBeforeMount(() => {
-      fetch(`http://www.omdbapi.com/?apikey=${env.apiKey}&i=${id.id}&plot=full`)
+      fetch(`https://www.omdbapi.com/?apikey=${env.apiKey}&i=${id.id}&plot=full`)
         .then((res) => res.json())
         .then((data) => {
           movie.value = data;
