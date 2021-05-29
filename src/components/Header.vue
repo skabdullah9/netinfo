@@ -1,7 +1,7 @@
 <template>
   <div class="header-wrapper fixed  z-50 w-full">
-  <header class="bg-gray-800 py-5 shadow-lg sticky top-0 font-mono flex items-center justify-between px-5 md:px-10">
-    <div class="goBack h-10 w-10">
+  <header class="bg-gray-800 py-5 shadow-lg sticky top-0 font-mono flex items-center justify-between px-4 md:px-10">
+    <div class="goBack h-7 w-7">
       <button v-if="$route.name != 'Home'" class="focus:outline-none"  @click="$router.back()">
     <i
       class="fa fa-arrow-left text-2xl md:text-3xl text-gray-200 "

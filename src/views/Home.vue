@@ -1,7 +1,7 @@
 <template>
   <div class="home flex justify-center flex-col items-center h-screen">
-    <h1 class="text-8xl text-white mb-6 text-opacity-50"><i class="fa fa-film"></i> <i class="fa fa-gamepad"></i></h1>
-    <h1 class="text-center text-white text-4xl mb-2 uppercase font-mono max-w-3xl">get relevant info for search </h1>
+    <h1 class="text-7xl  xl:text-8xl text-white mb-6 text-opacity-50"><i class="fa fa-film"></i> <i class="fa fa-gamepad"></i></h1>
+    <h1 class="text-center text-white text-3xl md:text-4xl mb-2 uppercase font-mono max-w-3xl">get relevant info for search </h1>
     <p class="mb-6 text-white italic text-gray-300 cursor-pointer font-sans">MOVIES | GAMES | TV SHOWS | WEB SERIES</p>
      <div class="relative mt-5">
             <div class="absolute top-4 left-3 "> <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500 ml-3 md:ml-0"></i> </div> <input type="text" required v-model="search" class="h-14  w-11/12 md:w-96  pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none text-xl bg-opacity-80" placeholder="Search anything...">

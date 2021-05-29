@@ -1,6 +1,6 @@
 <template>
   <main v-if="!loading" class="py-28 text-gray-200 font-sans">
-    <h1 class="text-5xl font-mono">{{ movie.Title }} ({{ movie.Year }})</h1>
+    <h1 class="text-3xl md:text-5xl font-mono">{{ movie.Title }} ({{ movie.Year }})</h1>
     <div class="relative inline-block mx-auto">
       <img
         :src="movie.Poster"
@@ -25,8 +25,8 @@
       </span>
     </h2>
     <p class="max-w-4xl mx-auto text-xl">{{ movie.Plot }}</p>
-    <div class="flex justify-center items-start my-5 text-base ">
-    <p class="border-2 border-pink-600 border-opacity-50 py-2 px-4 shadow-lg rounded-full mr-5">Genre: <span class="text-yellow-400 italic">"{{movie.Genre}}"</span> </p>
+    <div class="flex justify-center items-center flex-col md:flex-row  my-5 text-base ">
+    <p class="border-2 border-pink-600 border-opacity-50 py-2 px-4 shadow-lg rounded-full mr-5 mb-3">Genre: <span class="text-yellow-400 italic">"{{movie.Genre}}"</span> </p>
     <p class="border-2 border-pink-600 border-opacity-50 py-2 px-4 shadow-lg rounded-full">Language: <span class="text-yellow-400 italic">"{{movie.Language}}"</span></p>
 
     </div>
