@@ -25,23 +25,20 @@
       </span>
     </h2>
     <p class="max-w-4xl mx-auto text-xl">{{ movie.Plot }}</p>
-    <div class="flex justify-center my-5 text-base ">
+    <div class="flex justify-center items-start my-5 text-base ">
     <p class="border-2 border-pink-600 border-opacity-50 py-2 px-4 shadow-lg rounded-full mr-5">Genre: <span class="text-yellow-400 italic">"{{movie.Genre}}"</span> </p>
     <p class="border-2 border-pink-600 border-opacity-50 py-2 px-4 shadow-lg rounded-full">Language: <span class="text-yellow-400 italic">"{{movie.Language}}"</span></p>
 
     </div>
-    <h2 class="text-xl mt-8 ">Cast: <span class="bg-pink-600  rounded-full py-1 px-3 m-1 text-base" v-for="actor in movie.Actors">{{actor}}</span></h2>
-  </main>
+    <h2 class="text-xl mt-8 flex justify-center flex-wrap">Cast: <span class="bg-pink-600  rounded-full px-3 m-1 text-base shadow-lg" v-for="actor in movie.Actors">{{actor}}</span></h2>
+  </main> 
   <main v-else class="h-screen flex items-center justify-center">
     <div>
       <img src="@/assets/loading.gif" class="h-1/3 w-1/3 mx-auto" alt="" />
+       <h1 class="text-gray-300 text-3xl font-mono">Working on it...</h1>
     </div>
   </main>
-  <button @click="$router.go(-1)">
-    <i
-      class="fa fa-arrow-left text-3xl text-gray-200 absolute top-28 left-8"
-    ></i>
-  </button>
+  
 </template>
 
 <script>

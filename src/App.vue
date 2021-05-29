@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-900" id="app">
+  <div class="bg-gray-900" id="app">
     <Header />
     <div class="gradient h-full w-full  ">
        <div class="container ">
@@ -20,6 +20,11 @@ export default {
 }
 </script>
 <style>
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

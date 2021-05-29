@@ -1,5 +1,17 @@
 <template>
-  <main v-if="!loading" class="grid grid-cols-4 gap-5 auto-rows-fr items-start min-h-screen pt-28 font-sans">
+ <main v-if="loading" class="h-screen flex items-center justify-center ">
+   <div>
+      <img src="@/assets/loading.gif" class="h-1/5 w-1/5 mx-auto" alt="">
+      <h1 class="text-gray-300 text-3xl font-mono">Working on it...</h1>
+  </div>
+  </main>
+  <main v-if="errorMsg" class="h-screen flex items-center flex-col justify-center">
+    <h1 class="text-5xl md:text-8xl text-gray-200 font-mono mb-8 animate-pulse"><i class="fa fa-exclamation-triangle"></i></h1>
+    <h1 class="text-3xl md:text-5xl text-gray-200 font-mono">{{errorMsg}}</h1>
+     <router-link to="/" class="bg-gray-700 text-white text-2xl text-xl px-3 py-1 rounded-lg cursor-pointer hover:bg-gray-800 transition-color my-10 border-none focus:outline-none"> <i class="fa fa-chevron-left text-base leading-8 transform text-green-500 -mt-4 inline-block"></i> Go Back</router-link>
+  </main>
+ 
+  <main v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 auto-rows-fr pt-28 font-sans">
     <div
       v-for="movie in movies"
       :key="movie.imdbID"
@@ -23,15 +35,10 @@
       </router-link>
     </div>
   </main>
-  <main v-else class="h-screen flex items-center justify-center">
-    <div>
-      <img src="@/assets/loading.gif" class="h-1/4 w-1/4 mx-auto filter contrast-200 invert-1" alt="">
+  
 
-    </div>
-  </main>
-
-    <button @click="next" class="bg-gray-700 text-white text-2xl text-xl px-3 py-1 rounded-lg cursor-pointer hover:bg-gray-800 transition-color my-10 border-none focus:outline-none">More <i class="fa fa-chevron-right text-base leading-8 transform text-green-500"></i></button>
-    <router-link to="/"><i class="fa fa-search text-3xl text-gray-200 absolute top-28 rigth-2 md:right-8 hover:text-gray-100 animate-bounce"></i></router-link>
+    <button @click="next" v-if="!loading && !errorMsg && movies.length >= 10" class="bg-gray-700 text-white text-2xl text-xl px-3 py-1 rounded-lg cursor-pointer hover:bg-gray-800 transition-color my-10 border-none focus:outline-none">More <i class="fa fa-chevron-right text-base leading-8 transform text-green-500"></i></button>
+   
     
 </template>
 
@@ -47,17 +54,22 @@ export default {
     let movies = ref([]);
     let page = ref(1);
     let loading = ref(true)
+    let errorMsg = ref('')
    
     const fetchResults = () => {
       if(search.search !== undefined) {
          fetch(`https://www.omdbapi.com/?apikey=${env.apiKey}&s=${search.search}&page=${page.value}`)
-        .then((res) => res.json())
+        .then((res) =>res.json())
         .then((data) => {
-          
+          // if(!data.Response) throw new Error('Search input is not valid')
           movies.value.push(...data.Search);
          loading.value = false
-         console.log(loading.value);
-        });
+         
+        })
+        .catch(err=> {
+          loading.value = false
+          errorMsg.value = 'Search input is not valid';
+        })
       }
      
     }
@@ -66,10 +78,9 @@ export default {
       
       page.value++
       fetchResults()
-      console.log(search.search !== undefined);
     }
     
-    return { movies, page, next, loading };
+    return { movies, page, next, loading, errorMsg };
   },
 };
 </script>
