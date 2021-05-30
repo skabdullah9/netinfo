@@ -25,9 +25,9 @@
   </main>
 
   <main v-else class="pt-24 font-sans pb-16">
-    <div v-if="!loading && !errorMsg" class="flex justify-center items-center">
+    <div v-if="!loading && !errorMsg" class="flex justify-center md:justify-center items-center flex-col md:flex-row gap-4">
       <h1
-        class="text-gray-200 font-mono italic bg-gray-800 bg-opacity-40 p-3 rounded-lg text-2xl md:text-4xl ml-auto transform translate-x-1/4 mr-16"
+        class="text-gray-200 font-mono italic bg-gray-800 bg-opacity-40 whitespace-nowrap mx-auto  p-3 flex-grow md:flex-grow-0 rounded-lg text-2xl md:text-4xl  ml-auto transform md:translate-x-1/4 md:mr-16"
       >
         "{{ search.search }} ({{ totalResults }})"
       </h1>
@@ -35,7 +35,7 @@
       <select
         v-model="filter"
         @change="filterResults"
-        class="form-select cursor-pointer font-mono ml-auto bg-gray-800 text-gray-200 rounded-lg p-2 shadow-lg focus:outline-none"
+        class="form-select cursor-pointer font-mono md:ml-auto bg-gray-800 text-gray-200 rounded-lg mx-auto md:mx-0 p-2 shadow-lg focus:outline-none"
       >
         <option value="">All</option>
         <option value="movie">Movies</option>

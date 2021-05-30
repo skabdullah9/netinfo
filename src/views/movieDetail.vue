@@ -31,7 +31,7 @@
       {{ movie.Plot }}
     </p>
     <div
-      class="flex justify-center items-start flex-col md:flex-row my-5 text-base"
+      class="flex justify-center items-center md:items-start flex-col md:flex-row my-5 text-base"
     >
       <p
         v-if="movie.Genre != 'N/A'"
@@ -61,12 +61,13 @@
     </h2>
 
     <div
+      v-if="movie.Runtime != 'N/A' || movie.BoxOffice != 'N/A'"
       class="mt-6 bg-gray-800 bg-opacity-40 rounded-lg inline-block py-3 px-6 font-mono"
     >
-      <h2 class="text-gray-200 py-1">
+      <h2 v-if="movie.Runtime != 'N/A'" class="text-gray-200 py-1">
         Runtime: <span class="text-yellow-400">{{ movie.Runtime }}</span>
       </h2>
-      <h2 class="text-gray-200 py-1">
+      <h2 v-if="movie.BoxOffice != 'N/A'" class="text-gray-200 py-1">
         Box Office: <span class="text-yellow-400">{{ movie.BoxOffice }}</span>
       </h2>
     </div>

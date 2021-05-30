@@ -49,11 +49,14 @@
       >
     </h2>
   </div>
-  <p
-    class="text-gray-200 font-mono absolute bottom-2 text-center left-1/2 transform -translate-x-1/2"
+  <div class="relative">
+    <p
+    class="text-gray-200 font-mono absolute bottom-2 text-center left-1/2 transform -translate-x-1/2 whitespace-nowrap"
   >
     Made with <i class="fa fa-heart text-yellow-500"></i> by Abdullah
   </p>
+  </div>
+  
 </template>
 
 <script>
